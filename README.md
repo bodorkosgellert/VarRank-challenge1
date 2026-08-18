@@ -47,3 +47,9 @@ Official table: https://docs.clawbio.ai/hackathon/berlin/data/challenge1-b37-seg
 66 of 68 sites found. 52 of 66 have AF ≥ 1%. Most HIGH teaching sites are common in the world. Two sites still need follow-up (BDKRB1 stop-gain with no gnomAD hit; BAGE indel with rs ID shift). See [GNOMAD-LAYER-NOTE.md](GNOMAD-LAYER-NOTE.md).
 
 Local ClawBio `--demo` skill outputs (`rhiv/`, `acmg/`, `cnv/`, `vcfann/`) are method checks on bundled toy data, not calls on the family table.
+
+## Automation (design, not built)
+
+Next step if we extend the work: a four-layer lookup agent. Layer 1 identifies every site (count, gnomAD on GRCh37, VEP, rs, lift, indel normalise). Layer 2 retries only misses and sites under a stated AF threshold. Layer 3 is gene evidence on a shortlist only. Layer 4 is extra follow-up (HGVS, popmax AF, COSMIC vs germline). The model chooses the next tool and writes abstentions; frequencies stay in API JSON. Never treat `not_found` as rare.
+
+Full spec: [AUTOMATION-LAYERS.md](AUTOMATION-LAYERS.md).

@@ -1,0 +1,250 @@
+{
+  "skill": "gwas-lookup",
+  "version": "0.2.0",
+  "completed_at": "2026-08-18T15:34:35.555719+00:00",
+  "input_checksum": "",
+  "datasets": {},
+  "summary": {
+    "rsid": "rs60459764",
+    "chr": "21",
+    "pos_grch38": 10482859,
+    "total_gwas": 0,
+    "total_gwas_significant": 0,
+    "total_phewas_ukb": 0,
+    "total_phewas_finngen": 0,
+    "total_phewas_bbj": 0,
+    "total_eqtls": 0,
+    "total_credible_sets": 0,
+    "apis_queried": 8,
+    "apis_skipped": 0
+  },
+  "data": {
+    "variant": {
+      "rsid": "rs60459764",
+      "chr": "21",
+      "pos_grch38": 10482859,
+      "pos_grch37": null,
+      "ref": "GG",
+      "alt": "G",
+      "alt_alleles": [
+        "G"
+      ],
+      "allele_string": "GG/G",
+      "var_class": "indel",
+      "most_severe_consequence": "splice_donor_variant",
+      "minor_allele": "G",
+      "maf": 0.323587,
+      "populations": [],
+      "variant_ids": {
+        "open_targets": "21_10482859_GG_G",
+        "gtex": "chr21_10482859_GG_G_b38",
+        "pheweb": "21:10482859-GG-G"
+      },
+      "ensembl_info": {
+        "source": "ensembl_variation",
+        "status": "ok",
+        "rsid": "rs60459764",
+        "allele_string": "GG/G",
+        "minor_allele": "G",
+        "maf": 0.323587,
+        "var_class": "indel",
+        "most_severe_consequence": "splice_donor_variant",
+        "chr": "21",
+        "pos_grch38": 10482859,
+        "ref_allele": "GG",
+        "alt_alleles": [
+          "G"
+        ],
+        "populations": []
+      },
+      "vep_info": {
+        "source": "ensembl_vep",
+        "status": "ok",
+        "rsid": "rs60459764",
+        "most_severe_consequence": "splice_donor_variant",
+        "consequences": [
+          {
+            "gene_symbol": "",
+            "gene_id": "ENSG00000290523",
+            "consequence_terms": [
+              "splice_donor_variant",
+              "non_coding_transcript_variant"
+            ],
+            "impact": "HIGH",
+            "biotype": "lncRNA",
+            "sift": "",
+            "polyphen": ""
+          },
+          {
+            "gene_symbol": "BAGE2",
+            "gene_id": "ENSG00000187172",
+            "consequence_terms": [
+              "splice_donor_variant",
+              "non_coding_transcript_variant"
+            ],
+            "impact": "HIGH",
+            "biotype": "transcribed_unprocessed_pseudogene",
+            "sift": "",
+            "polyphen": ""
+          },
+          {
+            "gene_symbol": "",
+            "gene_id": "ENSG00000290523",
+            "consequence_terms": [
+              "intron_variant",
+              "non_coding_transcript_variant"
+            ],
+            "impact": "MODIFIER",
+            "biotype": "lncRNA",
+            "sift": "",
+            "polyphen": ""
+          },
+          {
+            "gene_symbol": "",
+            "gene_id": "ENSG00000290523",
+            "consequence_terms": [
+              "intron_variant",
+              "non_coding_transcript_variant"
+            ],
+            "impact": "MODIFIER",
+            "biotype": "lncRNA",
+            "sift": "",
+            "polyphen": ""
+          },
+          {
+            "gene_symbol": "",
+            "gene_id": "ENSG00000290523",
+            "consequence_terms": [
+              "intron_variant",
+              "non_coding_transcript_variant"
+            ],
+            "impact": "MODIFIER",
+            "biotype": "lncRNA",
+            "sift": "",
+            "polyphen": ""
+          },
+          {
+            "gene_symbol": "",
+            "gene_id": "ENSG00000290523",
+            "consequence_terms": [
+              "intron_variant",
+              "non_coding_transcript_variant"
+            ],
+            "impact": "MODIFIER",
+            "biotype": "lncRNA",
+            "sift": "",
+            "polyphen": ""
+          },
+          {
+            "gene_symbol": "",
+            "gene_id": "ENSG00000290523",
+            "consequence_terms": [
+              "upstream_gene_variant"
+            ],
+            "impact": "MODIFIER",
+            "biotype": "lncRNA",
+            "sift": "",
+            "polyphen": ""
+          },
+          {
+            "gene_symbol": "",
+            "gene_id": "ENSG00000290523",
+            "consequence_terms": [
+              "upstream_gene_variant"
+            ],
+            "impact": "MODIFIER",
+            "biotype": "lncRNA",
+            "sift": "",
+            "polyphen": ""
+          },
+          {
+            "gene_symbol": "",
+            "gene_id": "ENSG00000290523",
+            "consequence_terms": [
+              "upstream_gene_variant"
+            ],
+            "impact": "MODIFIER",
+            "biotype": "lncRNA",
+            "sift": "",
+            "polyphen": ""
+          },
+          {
+            "gene_symbol": "",
+            "gene_id": "ENSG00000290523",
+            "consequence_terms": [
+              "upstream_gene_variant"
+            ],
+            "impact": "MODIFIER",
+            "biotype": "lncRNA",
+            "sift": "",
+            "polyphen": ""
+          },
+          {
+            "gene_symbol": "",
+            "gene_id": "ENSG00000273840",
+            "consequence_terms": [
+              "upstream_gene_variant"
+            ],
+            "impact": "MODIFIER",
+            "biotype": "lncRNA",
+            "sift": "",
+            "polyphen": ""
+          }
+        ]
+      }
+    },
+    "merged": {
+      "gwas_associations": [],
+      "phewas": {
+        "ukb": [],
+        "finngen": [],
+        "bbj": []
+      },
+      "eqtl_associations": [],
+      "credible_sets": [],
+      "data_sources": {
+        "pheweb_bbj": {
+          "status": "skipped",
+          "message": "Missing GRCh37 coordinates"
+        },
+        "open_targets": {
+          "status": "error",
+          "message": "400 Client Error: Bad Request for url: https://api.platform.opentargets.org/api/v4/graphql"
+        },
+        "open_targets_credsets": {
+          "status": "error",
+          "message": "400 Client Error: Bad Request for url: https://api.platform.opentargets.org/api/v4/graphql"
+        },
+        "gwas_catalog": {
+          "status": "error",
+          "message": "404 Client Error: Not Found for url: https://www.ebi.ac.uk/gwas/rest/api/singleNucleotidePolymorphisms/rs60459764/associations"
+        },
+        "eqtl_catalogue": {
+          "status": "error",
+          "message": "500 Server Error: Internal Server Error for url: https://www.ebi.ac.uk/eqtl/api/v3/associations?rsid=rs60459764&size=100"
+        },
+        "gtex": {
+          "status": "ok",
+          "message": ""
+        },
+        "finngen": {
+          "status": "error",
+          "message": "404 Client Error: Not Found for url: https://r12.finngen.fi/api/variant/21:10482859-GG-G"
+        },
+        "pheweb_ukb": {
+          "status": "error",
+          "message": "Unexpected response format"
+        }
+      },
+      "summary": {
+        "total_gwas": 0,
+        "total_gwas_significant": 0,
+        "total_phewas_ukb": 0,
+        "total_phewas_finngen": 0,
+        "total_phewas_bbj": 0,
+        "total_eqtls": 0,
+        "total_credible_sets": 0
+      }
+    }
+  }
+}

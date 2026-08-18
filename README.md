@@ -20,7 +20,9 @@ Copy this into `#berlin-demos`:
 - [CHALLENGE1-RESULTS-EXPORT.md](CHALLENGE1-RESULTS-EXPORT.md) — spreadsheet notes
 - [challenge1-results-export.tsv](challenge1-results-export.tsv) — one row per variant
 - [DEMO-SCRIPT-PLAIN-ENGLISH.md](DEMO-SCRIPT-PLAIN-ENGLISH.md) — spoken two-minute script
-- [AUTOMATION-LAYERS.md](AUTOMATION-LAYERS.md) — four-layer lookup agent (design)
+- [AUTOMATION-LAYERS.md](AUTOMATION-LAYERS.md) — four-layer lookup agent, code, tests, how it differs from a lab pipeline
+- [agent_design/](agent_design/) — router plus unit tests (`python -m unittest agent_design.tests.test_router -v`)
+- [gwas-rs60459764/report.md](gwas-rs60459764/report.md) — `gwas-lookup` on the indel synonym `rs60459764`
 
 ## What we counted
 
@@ -48,8 +50,8 @@ Official table: https://docs.clawbio.ai/hackathon/berlin/data/challenge1-b37-seg
 
 Local ClawBio `--demo` skill outputs (`rhiv/`, `acmg/`, `cnv/`, `vcfann/`) are method checks on bundled toy data, not calls on the family table.
 
-## Automation (design, not built)
+## Automation
 
-Next step if we extend the work: a four-layer lookup agent. Layer 1 identifies every site (count, gnomAD on GRCh37, VEP, rs, lift, indel normalise). Layer 2 retries only misses and sites under a stated AF threshold. Layer 3 is gene evidence on a shortlist only. Layer 4 is extra follow-up (HGVS, popmax AF, COSMIC vs germline). The model chooses the next tool and writes abstentions; frequencies stay in API JSON. Never treat `not_found` as rare.
+Four-layer lookup agent: identity on every site, retry only misses, gene evidence on a shortlist, extra follow-up. A deterministic router in `agent_design/` decides the next tools and **never calls a catalogue miss rare**. HTTP adapters are not fully wired. Tests: `python -m unittest agent_design.tests.test_router -v`.
 
-Full spec: [AUTOMATION-LAYERS.md](AUTOMATION-LAYERS.md).
+Full spec, lab-pipeline comparison, and generalisation: [AUTOMATION-LAYERS.md](AUTOMATION-LAYERS.md).

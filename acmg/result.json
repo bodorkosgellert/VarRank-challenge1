@@ -1,0 +1,407 @@
+{
+  "tool": "ClawBio Clinical Variant Reporter",
+  "version": "0.1.0",
+  "framework": "ACMG/AMP 2015 (Richards et al., PMID 25741868)",
+  "sf_list": "ACMG SF v3.2 (Miller et al., 2023)",
+  "assembly": "GRCh38",
+  "timestamp": "2026-08-18 13:39:37 UTC",
+  "mode": "demo",
+  "data_source_versions": {
+    "clinvar": "2025-03-01 release",
+    "dbsnp": null,
+    "omim": null,
+    "gnomad": "v4.1"
+  },
+  "total_variants": 20,
+  "classification_counts": {
+    "Pathogenic": 4,
+    "Likely Pathogenic": 3,
+    "Uncertain Significance": 4,
+    "Likely Benign": 6,
+    "Benign": 3
+  },
+  "secondary_findings_count": 19,
+  "variants": [
+    {
+      "chrom": "chr17",
+      "pos": 43045684,
+      "ref": "AG",
+      "alt": "A",
+      "rsid": "rs80357906",
+      "gene": "BRCA1",
+      "consequence": "frameshift_variant",
+      "classification": "Pathogenic",
+      "abstained": false,
+      "audit_violations": [],
+      "is_secondary_finding": true,
+      "triggered_criteria": [
+        "PM2",
+        "PVS1",
+        "PP5"
+      ],
+      "evidence_summary": "PM2(M), PVS1(V), PP5(S)"
+    },
+    {
+      "chrom": "chr17",
+      "pos": 7674220,
+      "ref": "G",
+      "alt": "A",
+      "rsid": "rs28934578",
+      "gene": "TP53",
+      "consequence": "missense_variant",
+      "classification": "Pathogenic",
+      "abstained": false,
+      "audit_violations": [],
+      "is_secondary_finding": true,
+      "triggered_criteria": [
+        "PM2",
+        "PS1",
+        "PM1",
+        "PP3",
+        "PP5"
+      ],
+      "evidence_summary": "PM2(M), PS1(S), PM1(M), PP3(S), PP5(S)"
+    },
+    {
+      "chrom": "chr2",
+      "pos": 47429830,
+      "ref": "A",
+      "alt": "G",
+      "rsid": "rs267607899",
+      "gene": "MSH2",
+      "consequence": "splice_donor_variant",
+      "classification": "Pathogenic",
+      "abstained": false,
+      "audit_violations": [],
+      "is_secondary_finding": true,
+      "triggered_criteria": [
+        "PM2",
+        "PVS1",
+        "PP5"
+      ],
+      "evidence_summary": "PM2(M), PVS1(V), PP5(S)"
+    },
+    {
+      "chrom": "chr10",
+      "pos": 87933147,
+      "ref": "C",
+      "alt": "T",
+      "rsid": "rs121913296",
+      "gene": "PTEN",
+      "consequence": "stop_gained",
+      "classification": "Pathogenic",
+      "abstained": false,
+      "audit_violations": [],
+      "is_secondary_finding": true,
+      "triggered_criteria": [
+        "PM2",
+        "PVS1",
+        "PP5"
+      ],
+      "evidence_summary": "PM2(M), PVS1(V), PP5(S)"
+    },
+    {
+      "chrom": "chr13",
+      "pos": 32394897,
+      "ref": "C",
+      "alt": "A",
+      "rsid": "rs80359065",
+      "gene": "BRCA2",
+      "consequence": "stop_gained",
+      "classification": "Likely Pathogenic",
+      "abstained": false,
+      "audit_violations": [],
+      "is_secondary_finding": true,
+      "triggered_criteria": [
+        "PM2",
+        "PVS1"
+      ],
+      "evidence_summary": "PM2(M), PVS1(V)"
+    },
+    {
+      "chrom": "chr19",
+      "pos": 11113280,
+      "ref": "G",
+      "alt": "A",
+      "rsid": "rs137929303",
+      "gene": "LDLR",
+      "consequence": "missense_variant",
+      "classification": "Likely Pathogenic",
+      "abstained": false,
+      "audit_violations": [],
+      "is_secondary_finding": true,
+      "triggered_criteria": [
+        "PM2",
+        "PS1",
+        "PP3",
+        "PP5"
+      ],
+      "evidence_summary": "PM2(M), PS1(S), PP3(S), PP5(S)"
+    },
+    {
+      "chrom": "chr1",
+      "pos": 97515839,
+      "ref": "G",
+      "alt": "A",
+      "rsid": "rs3918290",
+      "gene": "DPYD",
+      "consequence": "splice_donor_variant",
+      "classification": "Likely Pathogenic",
+      "abstained": false,
+      "audit_violations": [],
+      "is_secondary_finding": false,
+      "triggered_criteria": [
+        "PM2",
+        "PVS1"
+      ],
+      "evidence_summary": "PM2(M), PVS1(V)"
+    },
+    {
+      "chrom": "chr3",
+      "pos": 38603170,
+      "ref": "C",
+      "alt": "A",
+      "rsid": "rs199473282",
+      "gene": "SCN5A",
+      "consequence": "missense_variant",
+      "classification": "Uncertain Significance",
+      "abstained": false,
+      "audit_violations": [],
+      "is_secondary_finding": true,
+      "triggered_criteria": [
+        "PM2",
+        "PP3"
+      ],
+      "evidence_summary": "PM2(M), PP3(S)"
+    },
+    {
+      "chrom": "chr3",
+      "pos": 37038110,
+      "ref": "A",
+      "alt": "C",
+      "rsid": "rs35001569",
+      "gene": "MLH1",
+      "consequence": "missense_variant",
+      "classification": "Uncertain Significance",
+      "abstained": false,
+      "audit_violations": [],
+      "is_secondary_finding": true,
+      "triggered_criteria": [
+        "PM2",
+        "BP4"
+      ],
+      "evidence_summary": "PM2(M), BP4(S)"
+    },
+    {
+      "chrom": "chr1",
+      "pos": 237287200,
+      "ref": "G",
+      "alt": "A",
+      "rsid": "rs186276840",
+      "gene": "RYR2",
+      "consequence": "missense_variant",
+      "classification": "Uncertain Significance",
+      "abstained": false,
+      "audit_violations": [],
+      "is_secondary_finding": true,
+      "triggered_criteria": [
+        "PM2",
+        "PP3"
+      ],
+      "evidence_summary": "PM2(M), PP3(S)"
+    },
+    {
+      "chrom": "chr16",
+      "pos": 68812350,
+      "ref": "C",
+      "alt": "T",
+      "rsid": "rs33935154",
+      "gene": "CDH1",
+      "consequence": "missense_variant",
+      "classification": "Uncertain Significance",
+      "abstained": false,
+      "audit_violations": [],
+      "is_secondary_finding": true,
+      "triggered_criteria": [
+        "PM2",
+        "BP4"
+      ],
+      "evidence_summary": "PM2(M), BP4(S)"
+    },
+    {
+      "chrom": "chr17",
+      "pos": 7676154,
+      "ref": "G",
+      "alt": "C",
+      "rsid": "rs1042522",
+      "gene": "TP53",
+      "consequence": "missense_variant",
+      "classification": "Benign",
+      "abstained": false,
+      "audit_violations": [],
+      "is_secondary_finding": true,
+      "triggered_criteria": [
+        "BA1",
+        "BS1",
+        "BP4",
+        "BP6"
+      ],
+      "evidence_summary": "BA1(S), BS1(S), BP4(S), BP6(S)"
+    },
+    {
+      "chrom": "chr13",
+      "pos": 32332271,
+      "ref": "A",
+      "alt": "C",
+      "rsid": "rs144848",
+      "gene": "BRCA2",
+      "consequence": "missense_variant",
+      "classification": "Benign",
+      "abstained": false,
+      "audit_violations": [],
+      "is_secondary_finding": true,
+      "triggered_criteria": [
+        "BA1",
+        "BS1",
+        "BP4",
+        "BP6"
+      ],
+      "evidence_summary": "BA1(S), BS1(S), BP4(S), BP6(S)"
+    },
+    {
+      "chrom": "chr6",
+      "pos": 26090951,
+      "ref": "C",
+      "alt": "G",
+      "rsid": "rs1799945",
+      "gene": "HFE",
+      "consequence": "missense_variant",
+      "classification": "Benign",
+      "abstained": false,
+      "audit_violations": [],
+      "is_secondary_finding": true,
+      "triggered_criteria": [
+        "BA1",
+        "BS1",
+        "BP4",
+        "BP6"
+      ],
+      "evidence_summary": "BA1(S), BS1(S), BP4(S), BP6(S)"
+    },
+    {
+      "chrom": "chr5",
+      "pos": 112815479,
+      "ref": "T",
+      "alt": "A",
+      "rsid": "rs1801155",
+      "gene": "APC",
+      "consequence": "missense_variant",
+      "classification": "Likely Benign",
+      "abstained": false,
+      "audit_violations": [],
+      "is_secondary_finding": true,
+      "triggered_criteria": [
+        "BS1",
+        "BP4"
+      ],
+      "evidence_summary": "BS1(S), BP4(S)"
+    },
+    {
+      "chrom": "chr3",
+      "pos": 37025720,
+      "ref": "G",
+      "alt": "A",
+      "rsid": "rs2020908",
+      "gene": "MLH1",
+      "consequence": "missense_variant",
+      "classification": "Likely Benign",
+      "abstained": false,
+      "audit_violations": [],
+      "is_secondary_finding": true,
+      "triggered_criteria": [
+        "BP4",
+        "BP6"
+      ],
+      "evidence_summary": "BP4(S), BP6(S)"
+    },
+    {
+      "chrom": "chr17",
+      "pos": 43082434,
+      "ref": "A",
+      "alt": "G",
+      "rsid": "rs4986852",
+      "gene": "BRCA1",
+      "consequence": "missense_variant",
+      "classification": "Likely Benign",
+      "abstained": false,
+      "audit_violations": [],
+      "is_secondary_finding": true,
+      "triggered_criteria": [
+        "BP4",
+        "BP6"
+      ],
+      "evidence_summary": "BP4(S), BP6(S)"
+    },
+    {
+      "chrom": "chr17",
+      "pos": 43090943,
+      "ref": "T",
+      "alt": "C",
+      "rsid": "rs1799966",
+      "gene": "BRCA1",
+      "consequence": "synonymous_variant",
+      "classification": "Likely Benign",
+      "abstained": false,
+      "audit_violations": [],
+      "is_secondary_finding": true,
+      "triggered_criteria": [
+        "BS1",
+        "BP4",
+        "BP6",
+        "BP7"
+      ],
+      "evidence_summary": "BS1(S), BP4(S), BP6(S), BP7(S)"
+    },
+    {
+      "chrom": "chr17",
+      "pos": 7675200,
+      "ref": "C",
+      "alt": "T",
+      "rsid": "rs1800371",
+      "gene": "TP53",
+      "consequence": "synonymous_variant",
+      "classification": "Likely Benign",
+      "abstained": false,
+      "audit_violations": [],
+      "is_secondary_finding": true,
+      "triggered_criteria": [
+        "BS1",
+        "BP4",
+        "BP6",
+        "BP7"
+      ],
+      "evidence_summary": "BS1(S), BP4(S), BP6(S), BP7(S)"
+    },
+    {
+      "chrom": "chr22",
+      "pos": 29663100,
+      "ref": "G",
+      "alt": "A",
+      "rsid": "rs2020911",
+      "gene": "NF2",
+      "consequence": "synonymous_variant",
+      "classification": "Likely Benign",
+      "abstained": false,
+      "audit_violations": [],
+      "is_secondary_finding": true,
+      "triggered_criteria": [
+        "BS1",
+        "BP4",
+        "BP6",
+        "BP7"
+      ],
+      "evidence_summary": "BS1(S), BP4(S), BP6(S), BP7(S)"
+    }
+  ],
+  "disclaimer": "ClawBio is a research and educational tool. It is not a medical device and does not provide clinical diagnoses. Consult a healthcare professional before making any medical decisions."
+}

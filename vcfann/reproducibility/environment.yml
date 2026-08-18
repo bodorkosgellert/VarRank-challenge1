@@ -1,0 +1,8 @@
+name: clawbio-vcf-annotator
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+# Generated: 2026-08-18 13:40 UTC
+# No extra packages required — uses only Python stdlib

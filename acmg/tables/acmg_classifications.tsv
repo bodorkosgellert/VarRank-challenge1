@@ -1,0 +1,21 @@
+chrom	pos	ref	alt	rsid	gene	consequence	clinvar_significance	clinvar_stars	gnomad_af	cadd_phred	acmg_classification	acmg_short	evidence_codes	is_secondary_finding
+chr17	43045684	AG	A	rs80357906	BRCA1	frameshift_variant	Pathogenic	3	2e-05	35.0	Pathogenic	P	PM2(M), PVS1(V), PP5(S)	True
+chr17	7674220	G	A	rs28934578	TP53	missense_variant	Pathogenic	3	8e-06	29.9	Pathogenic	P	PM2(M), PS1(S), PM1(M), PP3(S), PP5(S)	True
+chr2	47429830	A	G	rs267607899	MSH2	splice_donor_variant	Pathogenic	2		33.0	Pathogenic	P	PM2(M), PVS1(V), PP5(S)	True
+chr10	87933147	C	T	rs121913296	PTEN	stop_gained	Pathogenic	3		40.0	Pathogenic	P	PM2(M), PVS1(V), PP5(S)	True
+chr13	32394897	C	A	rs80359065	BRCA2	stop_gained		0		38.0	Likely Pathogenic	LP	PM2(M), PVS1(V)	True
+chr19	11113280	G	A	rs137929303	LDLR	missense_variant	Pathogenic	2	6e-05	26.5	Likely Pathogenic	LP	PM2(M), PS1(S), PP3(S), PP5(S)	True
+chr1	97515839	G	A	rs3918290	DPYD	splice_donor_variant		0	8e-05	34.0	Likely Pathogenic	LP	PM2(M), PVS1(V)	False
+chr3	38603170	C	A	rs199473282	SCN5A	missense_variant	Uncertain significance	1	3e-05	26.1	Uncertain Significance	VUS	PM2(M), PP3(S)	True
+chr3	37038110	A	C	rs35001569	MLH1	missense_variant	Uncertain significance	1	5e-05	18.2	Uncertain Significance	VUS	PM2(M), BP4(S)	True
+chr1	237287200	G	A	rs186276840	RYR2	missense_variant	Uncertain significance	1	4e-05	25.8	Uncertain Significance	VUS	PM2(M), PP3(S)	True
+chr16	68812350	C	T	rs33935154	CDH1	missense_variant		0	2e-05	22.5	Uncertain Significance	VUS	PM2(M), BP4(S)	True
+chr17	7676154	G	C	rs1042522	TP53	missense_variant	Benign	3	0.2503	9.2	Benign	B	BA1(S), BS1(S), BP4(S), BP6(S)	True
+chr13	32332271	A	C	rs144848	BRCA2	missense_variant	Benign	3	0.2348	8.1	Benign	B	BA1(S), BS1(S), BP4(S), BP6(S)	True
+chr6	26090951	C	G	rs1799945	HFE	missense_variant	Benign	2	0.1425	12.3	Benign	B	BA1(S), BS1(S), BP4(S), BP6(S)	True
+chr5	112815479	T	A	rs1801155	APC	missense_variant	Benign	1	0.0215	11.5	Likely Benign	LB	BS1(S), BP4(S)	True
+chr3	37025720	G	A	rs2020908	MLH1	missense_variant	Likely benign	2	0.0008	10.2	Likely Benign	LB	BP4(S), BP6(S)	True
+chr17	43082434	A	G	rs4986852	BRCA1	missense_variant	Benign	3	0.0052	4.8	Likely Benign	LB	BP4(S), BP6(S)	True
+chr17	43090943	T	C	rs1799966	BRCA1	synonymous_variant	Benign	2	0.0321	2.1	Likely Benign	LB	BS1(S), BP4(S), BP6(S), BP7(S)	True
+chr17	7675200	C	T	rs1800371	TP53	synonymous_variant	Benign	2	0.0189	1.5	Likely Benign	LB	BS1(S), BP4(S), BP6(S), BP7(S)	True
+chr22	29663100	G	A	rs2020911	NF2	synonymous_variant	Benign	2	0.0245	3.2	Likely Benign	LB	BS1(S), BP4(S), BP6(S), BP7(S)	True

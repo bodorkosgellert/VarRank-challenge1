@@ -1,0 +1,6 @@
+name: clawbio-cnv-acmg-classifier
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python>=3.10

@@ -1,0 +1,13 @@
+{
+  "acmg_framework": "Richards et al. 2015 (PMID 25741868)",
+  "sf_list": "ACMG SF v3.2 (Miller et al. 2023)",
+  "sf_gene_count": 81,
+  "annotation_backend": "demo_cache",
+  "data_source_versions": {
+    "clinvar": "2025-03-01 release",
+    "dbsnp": null,
+    "omim": null,
+    "gnomad": "v4.1"
+  },
+  "generated": "2026-08-18 13:39:37 UTC"
+}

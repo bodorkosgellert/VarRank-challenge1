@@ -1,0 +1,4 @@
+gene,locus,consequence,zygosity,population_af,rarity,clnsig
+GENE1,1:100000 C>T,nonsense,het,0.0002,ultra_rare,Pathogenic
+GENE7,7:700000 C>T,splice_acceptor,het,0.002,rare,
+GENE5,5:500000 C>G,nonsense,het,0.004,rare,

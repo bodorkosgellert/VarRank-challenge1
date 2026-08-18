@@ -1,0 +1,6 @@
+chrom,pos,id,ref,alt,gene,consequence,impact,hgvs,sift,polyphen,clinvar_significance,clinvar_condition,gnomad_af,gnomad_af_afr,gnomad_af_eur
+17,43044295,rs80357382,G,A,BRCA1,missense_variant,HIGH,NM_007294.4:c.5266dupC,deleterious,probably_damaging,Pathogenic,Hereditary breast and ovarian cancer syndrome,8e-06,0.0,1.2e-05
+13,32316461,rs80359550,C,T,BRCA2,stop_gained,HIGH,NM_000059.4:c.9976A>T,deleterious,probably_damaging,Pathogenic,Familial cancer of breast,4e-06,0.0,6e-06
+7,117548628,rs113993960,CTTT,C,CFTR,frameshift_variant,HIGH,NM_000492.4:c.1521_1523delCTT,deleterious,N/A,Pathogenic,Cystic fibrosis,0.021,0.0003,0.033
+19,11089199,rs429358,T,C,APOE,missense_variant,MODERATE,NM_000041.4:c.388T>C,tolerated,benign,Risk factor,Alzheimer disease,0.147,0.232,0.143
+1,69515,rs1801133,G,A,MTHFR,missense_variant,MODERATE,NM_005957.5:c.665C>T,tolerated,benign,Benign/Likely benign,Homocystinuria,0.312,0.198,0.367

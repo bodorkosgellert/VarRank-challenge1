@@ -1,0 +1,57 @@
+{
+  "skill": "rare-high-impact-variants",
+  "version": "0.1.0",
+  "source": "C:\\Users\\galla\\OneDrive\\Documents\\ClawBio\\skills\\rare-high-impact-variants\\demo_input.txt",
+  "rarity_threshold": 0.01,
+  "variants_processed": 7,
+  "carried_variants": 6,
+  "high_impact_carried": 5,
+  "rare_high_impact_count": 3,
+  "high_impact_common": 1,
+  "high_impact_frequency_unknown": 1,
+  "by_rarity": {
+    "ultra_rare": 1,
+    "rare": 2
+  },
+  "by_consequence": {
+    "nonsense": 2,
+    "splice_acceptor": 1
+  },
+  "findings": [
+    {
+      "gene": "GENE1",
+      "rsid": "rs1",
+      "locus": "1:100000 C>T",
+      "consequence": "nonsense",
+      "zygosity": "het",
+      "population_af": 0.0002,
+      "clnsig": "Pathogenic",
+      "rarity": "ultra_rare"
+    },
+    {
+      "gene": "GENE7",
+      "rsid": "rs7",
+      "locus": "7:700000 C>T",
+      "consequence": "splice_acceptor",
+      "zygosity": "het",
+      "population_af": 0.002,
+      "clnsig": "",
+      "rarity": "rare"
+    },
+    {
+      "gene": "GENE5",
+      "rsid": "rs5",
+      "locus": "5:500000 C>G",
+      "consequence": "nonsense",
+      "zygosity": "het",
+      "population_af": 0.004,
+      "clnsig": "",
+      "rarity": "rare"
+    }
+  ],
+  "frequency_unknown_genes": [
+    "GENE2"
+  ],
+  "scope_note": "Counts high-impact (loss-of-function) variants annotated with molecular consequence and population frequency in the input VCF. 'Rare' requires a documented frequency below the threshold; variants with no frequency are reported separately and not called rare. Genome-wide novel LoF calling (VEP / SnpEff / bcftools csq) and a complete frequency reference (gnomAD) are out of scope for v0.1.0.",
+  "disclaimer": "ClawBio is a research and educational tool. It is not a medical device and does not provide clinical diagnoses. Consult a healthcare professional before making any medical decisions."
+}

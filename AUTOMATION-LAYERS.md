@@ -1,109 +1,10 @@
-# What to automate next (plain English for the team)
+# What to automate next
 
 VarRank, Challenge 1, ClawBio + Nebius Hackathon Berlin, 18 August 2026.
 
-This note answers the glossary questions and lays out a four-layer lookup agent. It is a design, not a finished skill. We have **not** built this loop yet. The 30/38 count and the gnomAD version 2 table are already done.
+A four-layer lookup agent. This is a design, not a finished skill. We have **not** built this loop yet. The 30/38 count and the gnomAD version 2 table are already done.
 
 ClawBio is a research and educational tool. It is not a medical device and does not provide clinical diagnoses. Consult a healthcare professional before making any medical decisions.
-
----
-
-## Glossary
-
-### Abstention (in most cases)
-
-**Abstention** means we **refuse a claim** the file cannot support, and we write that refusal down. It is the product of this challenge, not a gap in the work.
-
-In most cases here, abstention is:
-
-| We will not say | Why |
-|---|---|
-| Rare in the world | Family `AF` is how often the allele appears in these four people (example `AF=0.25` means two of eight copies). That is not gnomAD. Missing from a catalogue is also not rarity. |
-| Pathogenic or diagnostic | The `EFF` column is old SnpEff text, not a current clinical classification. There is no phenotype and no HPO list. |
-| De novo (new in the child) | A parent carries the same allele at every one of the 68 sites. |
-| Compound heterozygous | The parent-of-origin tags are unphased teaching labels, not molecular phase. |
-| Autosomal dominant or recessive of a disease | There is no disease described. Thirty sites are labelled from the father, thirty eight from the mother. |
-| A clinical diagnosis | Same reasons as above. |
-
-The hosted BioNeMo agent wrote a generic abstention that was wrong in places (it claimed missing parental genotypes). **Do not use that text.** We have genotypes for son, father, mother, and sister in every row.
-
-### The BDKRB1 site
-
-One of the **two sites gnomAD version 2 did not return**.
-
-- Place: chromosome 14, position 96730313, G to A, GRCh37
-- No rs number in the family table (`id` is `.`)
-- Gene: **BDKRB1** (bradykinin receptor B1)
-- Effect in the teaching column: stop-gain, protein change W98* (tryptophan 98 becomes a stop)
-- Label: maternal (son and mother carry it; father does not)
-- Our gnomAD v2 query as `14-96730313-G-A` came back empty
-
-Empty here means **this query missed it**, not that the variant is rare. Ensembl VEP still calls it a stop-gain. Lift to GRCh38 is `14:96263976`. Follow-up catalogues (other gnomAD releases, dbSNP by position, ClinVar `BDKRB1 W98*`) are the next job. A COSMIC / somatic hit must be tagged somatic and must not be copied into a germline frequency cell.
-
-### Indel
-
-An **indel** is an insertion or a deletion: the sequence length changes. It is not a single-letter swap (those are SNVs).
-
-The other gnomAD miss is an indel:
-
-- Family table: chromosome 21, position 11029596, `AC` to `A` (one C deleted), id `rs138714104`
-- Genes: BAGE family
-- Label: maternal
-
-Indels are often **left-shifted**: two files can write the same DNA change at neighbouring positions with different allele strings. Ensembl GRCh37 maps this to **`rs60459764`** at **21:11029597–11029598**, alleles CC to C, with 1000 Genomes evidence. Synonyms include `rs796536508`, `rs376100218`, `rs144469422`.
-
-That is why a lookup as `21-11029596-AC-A` can miss a variant that exists under another spelling. The agent must normalise alleles, then retry.
-
-### Existing rs (rsID)
-
-An **rs number** (`rs` + digits) is the public name of a variant in dbSNP, for example `rs138714104`. “Existing rs” means Ensembl or VEP already knows a catalogue id for that change.
-
-- If an rs exists, federated tools such as ClawBio `gwas-lookup` can take it as `--rsid`.
-- If there is **no** rs (BDKRB1 in this pack), those tools cannot be pointed at the site. Use gene + protein HGVS instead (`BDKRB1` and `p.Trp98Ter` / W98*).
-
-An rs on the family row can still be the **wrong spelling** of an indel. Then the existing rs is a clue, not the final query. That is the `rs138714104` → `rs60459764` case.
-
----
-
-## Did BioNeMo run the ClawBio skills?
-
-**No.** You did not need OpenClaw from a terminal either.
-
-| Path | What happened |
-|---|---|
-| Hosted BioNeMo Research Agent (Nebius template **Deploy BioNeMo Agent**, endpoint `yellow-boa-endpoint-9`) | Counted the table after `curl` to disk. Pasting the whole TSV into chat crashed it. `clawbio__run_skill` for `rare-high-impact-variants` failed: **`demo is not qualified in this image`**. First abstention text was factually wrong. |
-| OpenClaw CLI on this laptop | Not required for what we shipped. The hosted BioNeMo agent **is** the OpenClaw-on-Nebius path. |
-| Local ClawBio Python on this laptop | This is the official fallback. Four skills ran with `--demo` on **bundled toy data**, not on the 68-row family table: `rare-high-impact-variants`, `vcf-annotator`, `clinical-variant-reporter`, `cnv-acmg-classifier`. |
-| One-off scripts in this folder | Parent-of-origin count and gnomAD v2 lookup. These are not ClawBio skills. |
-
-To run a skill yourself, from a ClawBio clone:
-
-```powershell
-python skills\rare-high-impact-variants\rare_high_impact_variants.py --demo --output output\track1-demo\rhiv
-```
-
-Do **not** feed the family TSV to `rare-high-impact-variants` (it does not parse `EFF`). Do **not** run `vcf-annotator` on this GRCh37 pack with GRCh38 defaults.
-
-Federated skills we designed for the two misses (`gwas-lookup` on `rs60459764`, PubMed / omics mapper on BDKRB1) were **not** completed: this Python install was missing `opentelemetry` when we tried.
-
-After the talk, stop the Nebius endpoint so it stops billing.
-
----
-
-## The idea: a state machine, not a chat dump
-
-Do not paste the 68-row table into a model. For each variant, keep a small record:
-
-- query tried
-- outcome (`found` / `not_found` / `ambiguous` / `error`)
-- failure class (`missing_in_build`, `indel_shift`, `no_rsid`, `rate_limit`)
-- next tool
-- evidence copied from API JSON only
-- stop rule
-
-The model only **chooses the next tool** and **writes the abstention**. Allele frequencies, ClinVar labels, and gene names stay in tool output. If a tool returns empty, the cell is `not_found`. **Never treat `not_found` as rare.**
-
----
 
 ## Layer 1 — identity (every site, cheap, no phenotype needed)
 
@@ -175,7 +76,38 @@ The orchestrator’s job is to **refuse** those, the same way the Slack demo bul
 
 ---
 
-## Suggested wiring
+## Commentary
+
+### A state machine, not a chat dump
+
+Do not paste the 68-row table into a model. For each variant, keep a small record:
+
+- query tried
+- outcome (`found` / `not_found` / `ambiguous` / `error`)
+- failure class (`missing_in_build`, `indel_shift`, `no_rsid`, `rate_limit`)
+- next tool
+- evidence copied from API JSON only
+- stop rule
+
+The model only **chooses the next tool** and **writes the abstention**. Allele frequencies, ClinVar labels, and gene names stay in tool output. If a tool returns empty, the cell is `not_found`. **Never treat `not_found` as rare.**
+
+### BioNeMo and local skills
+
+The hosted BioNeMo Research Agent (Nebius template **Deploy BioNeMo Agent**, endpoint `yellow-boa-endpoint-9`) counted the table after `curl` to disk. Pasting the whole TSV into chat crashed it. `clawbio__run_skill` for `rare-high-impact-variants` failed: **`demo is not qualified in this image`**. Its first abstention text was factually wrong (it claimed missing parental genotypes). We have genotypes for all four people in every row.
+
+OpenClaw from a terminal was not required. Local ClawBio Python is the official fallback. Four skills ran with `--demo` on **bundled toy data**, not on the 68-row family table: `rare-high-impact-variants`, `vcf-annotator`, `clinical-variant-reporter`, `cnv-acmg-classifier`. Parent-of-origin count and gnomAD v2 lookup were one-off scripts, not skills.
+
+```powershell
+python skills\rare-high-impact-variants\rare_high_impact_variants.py --demo --output output\track1-demo\rhiv
+```
+
+Do **not** feed the family TSV to `rare-high-impact-variants` (it does not parse `EFF`). Do **not** run `vcf-annotator` on this GRCh37 pack with GRCh38 defaults.
+
+Federated skills for the two misses (`gwas-lookup` on `rs60459764`, PubMed / omics mapper on BDKRB1) were **not** completed: this Python install was missing `opentelemetry` when we tried.
+
+After the talk, stop the Nebius endpoint so it stops billing.
+
+### Suggested wiring
 
 Give the agent tools, not web paste:
 
@@ -192,9 +124,7 @@ Batch layer 1 in Python (we already did 68 gnomAD lookups). Use an LLM only on t
 
 Smallest shippable version: input the 68-row TSV, output `challenge1-results-export.tsv` plus `open_questions.json`, and call `gwas-lookup` / VEP / ClinVar only for `not_found` and `af < 0.01`.
 
----
-
-## What “done” looks like for BDKRB1
+### What “done” looks like for BDKRB1
 
 1. gnomAD r2 `14-96730313-G-A` → not found
 2. VEP → BDKRB1 stop-gain W98*, no rs
@@ -206,9 +136,7 @@ Smallest shippable version: input the 68-row TSV, output `challenge1-results-exp
 
 That last sentence is the agent’s product. A ranked gene list without it is the failure this challenge is about.
 
----
-
-## Files already in this repo
+### Files already in this repo
 
 | File | What it is |
 |---|---|

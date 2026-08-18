@@ -20,7 +20,7 @@ Copy this into `#berlin-demos`:
 - [CHALLENGE1-RESULTS-EXPORT.md](CHALLENGE1-RESULTS-EXPORT.md) — spreadsheet notes
 - [challenge1-results-export.tsv](challenge1-results-export.tsv) — one row per variant
 - [DEMO-SCRIPT-PLAIN-ENGLISH.md](DEMO-SCRIPT-PLAIN-ENGLISH.md) — spoken two-minute script
-- [AUTOMATION-LAYERS.md](AUTOMATION-LAYERS.md) — glossary (abstention, BDKRB1, indel, rs) and four-layer lookup agent for the team
+- [AUTOMATION-LAYERS.md](AUTOMATION-LAYERS.md) — four-layer lookup agent (design)
 
 ## What we counted
 
